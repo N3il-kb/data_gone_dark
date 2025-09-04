@@ -27,10 +27,8 @@ Hypothesis Testing
 
 Framing a Prediction Problem
 
-Step 6: Baseline Model
+Baseline Model
 
-Step 7: Final Model
+Final Model
 
-Step 8: Fairness Analysis
-
-
+Fairness Analysis
