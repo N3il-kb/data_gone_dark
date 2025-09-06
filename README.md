@@ -14,7 +14,7 @@ Power outages are defined as the loss of electrical power serving a community. T
 
 Which is why in this project, we decide to explore when and where these power outages occur and just how severe they can be. To do this, we use a dataset provided by Purdue's LASCI (Laboratory for Advancing Sustainable Critical Infrastructure) which contains information on power outages from 2000 to 2016.
 
-The dataset titled 'Major Power Outage Risks in the U.S.' contains 1534 different observations from outages lasting minutes to major worldwide events like when Hurricane Rita caused a loss of power in Louisiana for over 13 days in 2005.
+The dataset titled ['Major Power Outage Risks in the U.S.'](https://engineering.purdue.edu/LASCI/research-data/outages) contains 1534 different observations from outages lasting minutes to major worldwide events like when Hurricane Rita caused a loss of power in Louisiana for over 13 days in 2005.
 
 On top of the 1534 rows, there are 56 columns worth of data that explain characteristics from where the storm happened to the population density of the area affected by the power outage. While this is extremely helpful, we won't be needing all of the columns therefore we dropped unneeded information and kept the following columns.
 
@@ -65,7 +65,7 @@ They almost look the exact same!
 
 But it wouldn't feel right to just say more people equals more power outage. It could just mean that higher population areas also require more electricity and infrastructure and therefore this causes more power outages. But it doesn't explicitly mean that more people cause power outages. But remember this dataset includes even the most minute outages that could last a minute or less. These kinds of disruptions, while annoying, don't exactly deserve the same amount of attention as more destructive outages.
 
-Thankfully, the U.S. Department of Energy has an item called Form DOE-417, or The Electric Emergency Incident and Disturbance Report. Here's <!-- put hyperlink --> an example of one, and in that form, it gives certain importance to events where more than `50,000` people are affected, `300` Megawatts or more power is lost. Furthermore, outages with over `72` or more hours of power loss correlate to severe power outages. Let's save this filtered dataset under `severe`
+Thankfully, the U.S. Department of Energy has an item called Form DOE-417, or The Electric Emergency Incident and Disturbance Report. [Here's](https://doe417.pnnl.gov/files/DOE-417_Form.pdf) an example of one, and in that form, it gives certain importance to events where more than `50,000` people are affected, `300` Megawatts or more power is lost. Furthermore, outages with over `72` or more hours of power loss correlate to severe power outages. Let's save this filtered dataset under `severe`
 
 ###     The severe DataFrame
 
