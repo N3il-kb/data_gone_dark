@@ -93,6 +93,12 @@ Now this plot looks more informative. Less importance is given to more populous 
 
 ### Bivariate analysis
 
+<iframe src="assets/severe_weather_outages_vs_state.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
 Plotting the data in `severe`, we can compare outages that are caused by severe weather compared to a state's population. After applying a log filter to make the data more visible, there are clear outlier states which deal with more disruptive power outages vs the rest of the country. This finally allows us to answer, where do major power outages occur and that would be in `Texas`, `Michigan`, `Florida`, `Virginia`, `Maryland`, `Georgia`, `Ohio`, `South Carolina`, `Indiana`, `Washington`, `Louisiana`. These were the states above the trendline when it came to their population vs how much severe outages they should be experiencing.
 
 Looking at reasons why these power outages occur, it's clear that `severe weather` is the biggest reason, but there seems to be a variety of possibilities that could affect power. But once again, most such as `intentional attack` and `system operability disruption` stem from power disruptions that are more likely to occur in heavily populated areas. 
