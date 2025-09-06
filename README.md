@@ -1,4 +1,5 @@
-# Data Gone Dark: Understanding power outages in the U.S.
+# Data Gone Dark: 
+## Understanding power outages in the U.S.
 
 Project for DSC 80 @ UC San Diego
 
