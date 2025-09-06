@@ -1,14 +1,10 @@
-# insert_title_here
-<!-- MENTAL NOTE: MAKE SURE TO ACTUALLY WRITE AN ACTUAL TITLE BEFORE SUBMISSION -->
+# Data Gone Dark: Understanding power outages in the U.S.
 
 Project for DSC 80 @ UC San Diego
 
 By Neil Bango and Jaden Goelkel
 
-<!-- Insert a table of contents with hyperlinks -->
-
 ## Introduction
-
 
 Power outages are defined as the loss of electrical power serving a community. These are usually harmful and indicative of underlying deeper problems. Considering how reliant we are on electricity in the 21st century these power outages  could potentially cost lives, destroy infrastructure, and create widespread problems.
 
