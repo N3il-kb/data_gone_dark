@@ -47,7 +47,7 @@ Now that our data is ready we can finally do some analysis!
 
 Let's go back to our first question. When and where do these power outages occur? A question like that should be easy. Since our dataset tells us the state the outage occurs in, we can simply read these from the table. We plot it below as a heatmap of the United States. 
 
-<iframe src="assets/power_outage_loss_by_state.html"
+<iframe src="/assets/power_outage_loss_by_state.html"
   width="800"
   height="600"
   frameborder="0"
@@ -55,7 +55,7 @@ Let's go back to our first question. When and where do these power outages occur
 
 Well this doesn't look to helpful, in fact it seems pretty similar to a heatmap of the U.S. Population. In fact, let's take a look at a map like that
 
-<iframe src="assets/population_by_state.html"
+<iframe src="/assets/population_by_state.html"
   width="800"
   height="600"
   frameborder="0"
@@ -69,7 +69,7 @@ Thankfully, the U.S. Department of Energy has an item called Form DOE-417, or Th
 
 With this new more exclusive dataset, let's redo our plots.
 
-<iframe src="assets/severe_power_outage_loss_by_state.html"
+<iframe src="/assets/severe_power_outage_loss_by_state.html"
   width="800"
   height="600"
   frameborder="0"
@@ -79,7 +79,7 @@ Now this plot looks more informative. Less importance is given to more populous 
 
 Looking at reasons why these power outages occur, it's clear that `severe weather` is the biggest reason, but there seems to be a variety of possibilites that could affect power. But once again, most such as `intentional attack` and `system operability disruption` stem from power disruptions that are more likely to occur in heaily populated areas. 
 
-<iframe src="assets/category_causes.html"
+<iframe src="/assets/category_causes.html"
   width="800"
   height="600"
   frameborder="0"
@@ -87,7 +87,7 @@ Looking at reasons why these power outages occur, it's clear that `severe weathe
 
 This changes once again if we use our custom `severe` DataFrame, and the real reason why major power outages happen become more apparent.
 
-<iframe src="assets/severe_category_causes_detailed.html"
+<iframe src="/assets/severe_category_causes_detailed.html"
   width="800"
   height="600"
   frameborder="0"
