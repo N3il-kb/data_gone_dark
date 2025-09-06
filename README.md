@@ -127,8 +127,7 @@ But arguably just as important as where is when these power outages occur.
 
 
 
-There seems to be a clear spike in power outages from June to September. This would support our idea that disruptive outages occur mostly because of severe weather effects since June 1 to November 30 is considered as Hurricane Season by the National Weather Service <!-- source https://www.weather.gov/safety/hurricane#:~:text=On%20average%2C%2014%20tropical%20storms,to%20November%2030%20each%20year. -->
-
+There seems to be a clear spike in power outages from June to September. This would support our idea that disruptive outages occur mostly because of severe weather effects since June 1 to November 30 is considered as [Hurricane Season](https://www.weather.gov/safety/hurricane#:~:text=On%20average%2C%2014%20tropical%20storms,to%20November%2030%20each%20year) by the National Weather Service
 
 
 
