@@ -10,11 +10,11 @@ By Neil Bango and Jaden Goelkel
 ## Introduction
 
 
-Power outages are defined as the loss of electrical power serving a community. These are usually harmful and indicative of an underlying deeper problems. Considering how reliant we are on electricity in the 21st century these power outages  could potentially cost lives, destroy infrastructure, and create widespread problems.
+Power outages are defined as the loss of electrical power serving a community. These are usually harmful and indicative of underlying deeper problems. Considering how reliant we are on electricity in the 21st century these power outages  could potentially cost lives, destroy infrastructure, and create widespread problems.
 
 Which is why in this project, we decide to explore when and where these power outages occur and just how severe they can be. To do this, we use a dataset provided by Purdue's LASCI (Laboratory for Advancing Sustainable Critical Infrastructure) which contains information on power outages from 2000 to 2016.
 
-The dataset titled 'Major Power Outage Risks in the U.S.' contains 1534 different observations from outages lasting minutes to major world wide events like when Hurrican Rita caused a loss of power in Louisiana for over 13 days in 2005.
+The dataset titled 'Major Power Outage Risks in the U.S.' contains 1534 different observations from outages lasting minutes to major worldwide events like when Hurricane Rita caused a loss of power in Louisiana for over 13 days in 2005.
 
 On top of the 1534 rows, there are 56 columns worth of data that explain characteristics from where the storm happened to the population density of the area affected by the power outage. While this is extremely helpful, we won't be needing all of the columns therefore we dropped unneeded information and kept the following columns.
 
@@ -53,7 +53,7 @@ Let's go back to our first question. When and where do these power outages occur
   frameborder="0"
 ></iframe>
 
-Well this doesn't look to helpful, in fact it seems pretty similar to a heatmap of the U.S. Population. In fact, let's take a look at a map like that
+Well this doesn't look too helpful, in fact it seems pretty similar to a heatmap of the U.S. Population. In fact, let's take a look at a map like that
 
 <iframe src="assets/population_by_state.html"
   width="800"
@@ -63,13 +63,13 @@ Well this doesn't look to helpful, in fact it seems pretty similar to a heatmap 
 
 They almost look the exact same!
 
-But it wouldn't feel right to just say more people equals more power outage. It could just mean that higher population areas also require more electricity and infrastructure and therefore this causes more power outages. But it doesn't explicitly mean that more people cause power outages. But remember this dataset includes even the most minute outages that could last a minute or less. Theses kinds of disruptions, while annoying, don't exactly deserve the same amount of attention of more destructive outages.
+But it wouldn't feel right to just say more people equals more power outage. It could just mean that higher population areas also require more electricity and infrastructure and therefore this causes more power outages. But it doesn't explicitly mean that more people cause power outages. But remember this dataset includes even the most minute outages that could last a minute or less. These kinds of disruptions, while annoying, don't exactly deserve the same amount of attention as more destructive outages.
 
-Thankfully, the U.S. Department of Energy has an item called Form DOE-417, or The Electric Emergency Incident and Disturbance Report. Here's <!-- put hyperlink --> an example of one, and in that form, it gives certain importance to events where more than `50,000` people are affected, `300` Megawatts or more power is loss. Furthermore, outages with over `72` or more hours of power loss correlate to severe power outages. Let's save this filtered dataset under `severe`
+Thankfully, the U.S. Department of Energy has an item called Form DOE-417, or The Electric Emergency Incident and Disturbance Report. Here's <!-- put hyperlink --> an example of one, and in that form, it gives certain importance to events where more than `50,000` people are affected, `300` Megawatts or more power is lost. Furthermore, outages with over `72` or more hours of power loss correlate to severe power outages. Let's save this filtered dataset under `severe`
 
 ###     The severe DataFrame
 
-Before we proceed, this DataFrame contains some interesting aggregates. If pivot the tables on `'us_state'` and find the mean `'outage_duration'`, and the sum of `'customers_affected'` and `'demand_loss_mw'` you will see the table below. It gives us a sense of scale how much more damaging an outage is once we compare it to other other occurences in its class.
+Before we proceed, this DataFrame contains some interesting aggregates. If we pivot the tables on `'us_state'` and find the mean `'outage_duration'`, and the sum of `'customers_affected'` and `'demand_loss_mw'` you will see the table below. It gives us a sense of scale how much more damaging an outage is once we compare it to other other occurrences in its class.
 
 | us_state       |   customers_affected |   demand_loss_mw |   outage_duration |
 |:---------------|---------------------:|-----------------:|------------------:|
@@ -99,7 +99,7 @@ Now this plot looks more informative. Less importance is given to more populous 
 
 Plotting the data in `severe`, we can compare outages that are caused by severe weather compared to a state's population. After applying a log filter to make the data more visible, there are clear outlier states which deal with more disruptive power outages vs the rest of the country. This finally allows us to answer, where do major power outages occur and that would be in `Texas`, `Michigan`, `Florida`, `Virginia`, `Maryland`, `Georgia`, `Ohio`, `South Carolina`, `Indiana`, `Washington`, `Louisiana`. These were the states above the trendline when it came to their population vs how much severe outages they should be experiencing.
 
-Looking at reasons why these power outages occur, it's clear that `severe weather` is the biggest reason, but there seems to be a variety of possibilites that could affect power. But once again, most such as `intentional attack` and `system operability disruption` stem from power disruptions that are more likely to occur in heaily populated areas. 
+Looking at reasons why these power outages occur, it's clear that `severe weather` is the biggest reason, but there seems to be a variety of possibilities that could affect power. But once again, most such as `intentional attack` and `system operability disruption` stem from power disruptions that are more likely to occur in heavily populated areas. 
 
 <iframe src="assets/category_causes.html"
   width="800"
@@ -117,7 +117,7 @@ This changes once again if we use our custom `severe` DataFrame, and the real re
 
 Clearly mother nature is the biggest determiner of more serious power outages.
 
-But arguably just as important as where is when do these power outages occur. 
+But arguably just as important as where is when these power outages occur. 
 
 <iframe src="assets/outages_per_month.html"
   width="800"
@@ -139,7 +139,7 @@ The dataset contained missing values on a variety of columns. Most prevalently o
 
 ### Permutation test for missingness
 
-To assess missingness, we chose to identify if `'cause_category_detail'` and its missingess has something to do with `'customers_affected'`. In other words, we wanted to see if the cause of an outage has something to do with the number of customers being missing. 
+To assess missingness, we chose to identify if `'cause_category_detail'` and its missingness has something to do with `'customers_affected'`. In other words, we wanted to see if the cause of an outage has something to do with the number of customers being missing. 
 
 To do this, let's formalize a hypothesis:
 
@@ -162,7 +162,7 @@ We find an observed TVD between `'cause_category_detail'` and `'customer_missing
   frameborder="0"
 ></iframe>
 
-Let's do this test again but this time we choose to identify if `'climate_category'` and its missingess has something to do with `'customers_affected'`. In other words, we wanted to see if the cause of an outage has something to do with the climate category of the outage. 
+Let's do this test again but this time we choose to identify if `'climate_category'` and its missingness has something to do with `'customers_affected'`. In other words, we wanted to see if the cause of an outage has something to do with the climate category of the outage. 
 
 To do this, let's formalize a hypothesis:
 
@@ -186,13 +186,13 @@ This time, we find an observed TVD between `'climate_category'` and `'customer_m
 
 ## Hypothesis Testing
 
-While this assesement of missingness has shown how powerful hypothesis testing is, one aspect where we thought we could also apply it in is a population problem. Going back to our Exploratory Data Analysis, we saw how initially we thought that higher population areas had more chances of power outages. This was before we filtered out severe outages first. However, we came to that conclusion by looking at a map and guestimating. Let's try being more objective about it.
+While this assessment of missingness has shown how powerful hypothesis testing is, one aspect where we thought we could also apply it is a population problem. Going back to our Exploratory Data Analysis, we saw how initially we thought that higher population areas had more chances of power outages. This was before we filtered out severe outages first. However, we came to that conclusion by looking at a map and guesstimating. Let's try being more objective about it.
 
 * Null Hypothesis: The average number of customers affected by an outage is the same in high-population and low-population areas.
 
 * Alternative Hypothesis: The average number of customers affected by an outage is different between high-population and low-population areas.
 
-In our population sample, we split it into two samples depending on if the outage occured a high population area or not. We did this by placing them in different bins depending on if the population is above/below the median.
+In our population sample, we split it into two samples depending on if the outage occurred in a high population area or not. We did this by placing them in different bins depending on if the population is above/below the median.
 
 Our test statistic would be the difference of means between customers affected in high population areas and low population areas. Our significance level would be placed at `p=0.05`
 
