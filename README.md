@@ -17,7 +17,7 @@ On top of the 1534 rows, there are 56 columns worth of data that explain charact
 <!-- Insert a table of columns and what they mean -->
 
 ## Data Cleaning and Exploratory Data Analysis
-### • Data Cleaning
+### Data Cleaning
 To answer the question we defined, we must first clean the data. We start by dropping the columns we didn't use as mentioned earlier. 
 
 Then to reduce redundancy in the dataset, we combined the columns `'OUTAGE.START.DATE'` and `'OUTAGE.START.TIME'` into one cohesive `'OUTAGE.START'` column as a pandas DateTime object. Then dropped the redundant information. 
@@ -37,7 +37,7 @@ This is what the first few rows and columns of the new cleaned DataFrame look li
 |     5 |   2015 |       7 | Minnesota  |
 
 ## Exploratory Data Analysis
-### • Univariate analyses
+### Univariate analyses
 
 Now that our data is ready we can finally do some analysis!
 
@@ -91,7 +91,7 @@ With this new more exclusive dataset, let's redo our plots.
 
 Now this plot looks more informative. Less importance is given to more populous states just because of their size and it outlines states such as Michigan and Texas as being prone to severe power outages. But these "severe locations" can be difficult to discern from a map alone, let's try making a more objective metric.
 
-### • Performed bivariate analyses and aggregations
+### Bivariate analysis
 
 Plotting the data in `severe`, we can compare outages that are caused by severe weather compared to a state's population. After applying a log filter to make the data more visible, there are clear outlier states which deal with more disruptive power outages vs the rest of the country. This finally allows us to answer, where do major power outages occur and that would be in `Texas`, `Michigan`, `Florida`, `Virginia`, `Maryland`, `Georgia`, `Ohio`, `South Carolina`, `Indiana`, `Washington`, `Louisiana`. These were the states above the trendline when it came to their population vs how much severe outages they should be experiencing.
 
