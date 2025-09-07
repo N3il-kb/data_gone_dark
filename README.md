@@ -201,7 +201,7 @@ With this in mind, we proceed with a permutation test with 1000 repetitions, and
   frameborder="0"
 ></iframe>
 
-## a Prediction Problem
+## A Prediction Problem
 
 Now that we know where and when these disruptions happen, let's try predicting how bad these disruptions can get.
 
