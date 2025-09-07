@@ -218,22 +218,22 @@ add features and do feature engineering
 
 ## Baseline Model
 
-The base model uses two features that identifies if a power outage is caused by severe weather or by system operability disruption. We chose to pick these causes since, as we've established most severe power outages are caused by severe weather, and system operability disruptions are mostly caused by the company themselves. Making a model that could relatively reliably differentiate the two causes could be helpful for power grid companies to make systems more reliable if they know the root cause of errors. 
+The base model uses binary classification on two features that identifies if a power outage is caused by severe weather or by system operability disruption. We chose to pick these causes since, as we've established, most severe power outages are caused by severe weather, and system operability disruptions are mostly caused by the company themselves. Making a model that could relatively reliably differentiate the two causes could be helpful for power grid companies to make systems more reliable if they know the root cause of errors. 
 
-To do this we had an encoding scheme that sets `'system operability disruption'` as `1`s and `'severe weather'` as `0`s. Then the two features we chose are `'month'` and `'postal code'`. Since as we've established the severe weather usually occur during a specific time of the year in hurricane season, and location matters since some states are more prone to power outages compared to others.
+To do this we had an encoding scheme that sets `'system operability disruption'` as `1`s and `'severe weather'` as `0`s. Then the two features we chose are `'month'` (nominal) and `'postal code'` (nominal). Since as we've established the severe weather usually occur during a specific time of the year in hurricane season, and location matters since some states are more prone to power outages compared to others.
 
-Even with not much features, our weighted F1-score came out as a respectable 0.78. 
+Even with not much features, our weighted F1-score came out as a respectable 0.3. 
 
 ## Final Model
 
-The final model uses the added features `'month'`, `'postal_code'`, `'climate_category'`, `'year'`. And on top of that we engineered `'anomaly_level_squared'` and `'anomaly_level_cubed'` to account for the nonlinear effects of anomaly severity. Then to double down on encapsulating more features in locations and dates, we added `'climate_category'`and `'year'` for more granularity.
+The final model uses the added features `'month'` (nominal), `'postal_code'` (nominal), `'climate_category'` (nominal), `'year'` (nominal). And on top of that we engineered `'anomaly_level_squared'` and `'anomaly_level_cubed'` to account for the nonlinear effects of anomaly severity. Then to double down on encapsulating more features in locations and dates, we added `'climate_category'`and `'year'` for more granularity.
 
 Then we used grid search to look for the best hyperparameters in our random forest which ended up being:
 
     'classifier__max_depth': 13
     'classifier__n_estimators': 100
 
-In our new model our weighted F1 score came out to being 0.84 (a 0.06 improvement!). 
+In our new model our weighted F1 score came out to being 0.41. 
 ## Fairness Analysis
 
 Finally, to ensure that there is no bias in our results we do a fairness analysis with a permutation test that is going to compare the model's performance using F1 score for the first half of dates in the dataset and the second half of dates in the data set.
