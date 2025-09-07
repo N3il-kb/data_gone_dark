@@ -14,6 +14,26 @@ The dataset titled ['Major Power Outage Risks in the U.S.'](https://engineering.
 
 On top of the 1534 rows, there are 56 columns worth of data that explain characteristics from where the storm happened to the population density of the area affected by the power outage.
 
+This is a description of the relevant columns used in this dataset.
+
+|        Column         | Description                                                          |
+|:----------------------|:---------------------------------------------------------------------|
+| obs                   | observations in the dataset                                          |
+| year                  | the year the outage started                                          |
+| month                 | the month the outage started                                         |
+| us_state              | the US state where the outage occurred                               |
+| postal_code           | the postal code where the outage occurred                            |
+| climate_region        | the climate region where the outage occurred                         |
+| anomaly_level         | the anomaly level of the climate region where the outage occurred    |
+| climate_category      | the climate category of the climate region where the outage occurred |
+| nerc_region           | the NERC region where the outage occurred                            |
+| outage_start          | the date and time the outage started                                 |
+| cause_category        | the high level cause of the outage                                   |
+| cause_category_detail | the detailed cause of the outage                                     |
+| demand_loss_mw        | the demand loss in megawatts due to the outage                       |
+| customers_affected    | the number of customers affected by the outage                       |
+
+
 ## Data Cleaning and Exploratory Data Analysis
 ### Data Cleaning
 To answer the question we defined, we must first clean the data. We start by dropping the columns we didn't use as mentioned earlier. 
