@@ -12,17 +12,13 @@ Which is why in this project, we decide to explore when and where these power ou
 
 The dataset titled ['Major Power Outage Risks in the U.S.'](https://engineering.purdue.edu/LASCI/research-data/outages) contains 1534 different observations from outages lasting minutes to major worldwide events like when Hurricane Rita caused a loss of power in Louisiana for over 13 days in 2005.
 
-On top of the 1534 rows, there are 56 columns worth of data that explain characteristics from where the storm happened to the population density of the area affected by the power outage. While this is extremely helpful, we won't be needing all of the columns therefore we dropped unneeded information and kept the following columns.
-
-<!-- Insert a table of columns and what they mean -->
+On top of the 1534 rows, there are 56 columns worth of data that explain characteristics from where the storm happened to the population density of the area affected by the power outage.
 
 ## Data Cleaning and Exploratory Data Analysis
 ### Data Cleaning
 To answer the question we defined, we must first clean the data. We start by dropping the columns we didn't use as mentioned earlier. 
 
 Then to reduce redundancy in the dataset, we combined the columns `'OUTAGE.START.DATE'` and `'OUTAGE.START.TIME'` into one cohesive `'OUTAGE.START'` column as a pandas DateTime object. Then dropped the redundant information. 
-
-<!-- np.nan needed data -->
 
 Finally, to adhere to Python's PEP 8 style guide, we made the column names `snake_case`.
 
@@ -205,23 +201,47 @@ With this in mind, we proceed with a permutation test with 1000 repetitions, and
   frameborder="0"
 ></iframe>
 
+## a Prediction Problem
 
-• Selected relevant columns for a hypothesis or permutation test
+Now that we know where and when these disruptions happen, let's try predicting how bad these disruptions can get.
 
-• Explicitly stated a null hypothesis
+The Prediction problems that we chose to do was doing binary classification to 
+predict if the cause of a power outage was due to severe weather or system operability disruption.
 
-• Explicitly stated an alternative hypothesis
+We are going to build a model that can predict between the two causes using, 
+the month, postal_code for the baseline model and then we are going to explore 
+more features and engineer features for the final model. 
 
-• Performed a hypothesis or permutation test
+We are going to use F1-score for the overall evaluation but using precision, 
+recall and accurary to see how the model is performing in a holistic way as we
+add features and do feature engineering
 
-• Used a valid test statistic
+## Baseline Model
 
-• Computed a p-value and made a decision
+The base model uses two features that identifies if a power outage is caused by severe weather or by system operability disruption. We chose to pick these causes since, as we've established most severe power outages are caused by severe weather, and system operability disruptions are mostly caused by the company themselves. Making a model that could relatively reliably differentiate the two causes could be helpful for power grid companies to make systems more reliable if they know the root cause of errors. 
 
-Framing a Prediction Problem
+To do this we had an encoding scheme that sets `'system operability disruption'` as `1`s and `'severe weather'` as `0`s. Then the two features we chose are `'month'` and `'postal code'`. Since as we've established the severe weather usually occur during a specific time of the year in hurricane season, and location matters since some states are more prone to power outages compared to others.
 
-Baseline Model
+Even with not much features, our weighted F1-score came out as a respectable 0.78. 
 
-Final Model
+## Final Model
 
-Fairness Analysis
+The final model uses the added features `'month'`, `'postal_code'`, `'climate_category'`, `'year'`. And on top of that we engineered `'anomaly_level_squared'` and `'anomaly_level_cubed'` to account for the nonlinear effects of anomaly severity. Then to double down on encapsulating more features in locations and dates, we added `'climate_category'`and `'year'` for more granularity.
+
+Then we used grid search to look for the best hyperparameters in our random forest which ended up being:
+
+    'classifier__max_depth': 13
+    'classifier__n_estimators': 100
+
+In our new model our weighted F1 score came out to being 0.84 (a 0.06 improvement!). 
+## Fairness Analysis
+
+Finally, to ensure that there is no bias in our results we do a fairness analysis with a permutation test that is going to compare the model's performance using F1 score for the first half of dates in the dataset and the second half of dates in the data set.
+
+In our permutation test we state:
+
+* Null Hypothesis: The model is fair, the F1 score for later and earlier dates are roughly the same and the differences are due to chance
+
+* Alternative Hypothesis:  The model is unfair, the F1 scores for earlier dates are greater than the later dates. 
+
+After 1000 trials, we end up with a p-value of 0.15 and since it is above a significance level of 0.05, we fail to reject the null hypothesis. There isn't any significant difference between earlier dates and later dates.
