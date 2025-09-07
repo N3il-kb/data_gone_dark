@@ -245,3 +245,11 @@ In our permutation test we state:
 * Alternative Hypothesis:  The model is unfair, the F1 scores for earlier dates are greater than the later dates. 
 
 After 1000 trials, we end up with a p-value of 0.15 and since it is above a significance level of 0.05, we fail to reject the null hypothesis. There isn't any significant difference between earlier dates and later dates.
+
+Here's a plot of the distribution of simulated F1 score differences.
+
+<iframe src="assets/fairness_analysis.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
